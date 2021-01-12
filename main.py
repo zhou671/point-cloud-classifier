@@ -2,10 +2,10 @@ import tensorflow as tf
 import numpy as np
 from generator import generate_data
 from model import PointNet
-SIZE = 100000
+SIZE = 50000
 
 def train(model, data, labels):
-    b_size = 512
+    b_size = 256
     
     tot = data.shape[0]
     indice = tf.range(tot)
@@ -57,6 +57,6 @@ if __name__ == '__main__':
     data, labels = generate_data(SIZE)
     m = PointNet(0.7)
     loss_list = train(m, data, labels)
-    data, labels = generate_data(1000)
+    data, labels = generate_data(1024)
     print(test(m, data, labels))
 
